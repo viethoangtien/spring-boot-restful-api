@@ -1,4 +1,4 @@
-package com.soict.hoangviet.restfulapidemo.model
+package com.soict.hoangviet.restfulapidemo.entity
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -7,7 +7,7 @@ import javax.persistence.Id
 @Entity
 class Book(
         @Id @GeneratedValue
-        val id: Long? = null,
-        val name: String,
-        val author: String
+        var id: Long? = null,
+        var name: String,
+        var author: String
 )

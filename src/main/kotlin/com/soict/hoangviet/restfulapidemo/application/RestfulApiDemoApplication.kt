@@ -1,9 +1,8 @@
 package com.soict.hoangviet.restfulapidemo.application
 
-import com.soict.hoangviet.restfulapidemo.model.Book
+import com.soict.hoangviet.restfulapidemo.entity.Book
 import com.soict.hoangviet.restfulapidemo.repository.BookRepository
 import org.springframework.boot.CommandLineRunner
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.boot.runApplication
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 @SpringBootApplication
-@EntityScan(basePackages = ["com.soict.hoangviet.restfulapidemo.model"])
+@EntityScan(basePackages = ["com.soict.hoangviet.restfulapidemo.entity"])
 @EnableJpaRepositories(basePackages = ["com.soict.hoangviet.restfulapidemo.repository"])
 @ComponentScan(basePackages = ["com.soict.hoangviet.restfulapidemo.controller"])
 class RestfulApiDemoApplication {
