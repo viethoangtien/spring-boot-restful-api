@@ -18,13 +18,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 @ComponentScan(basePackages = ["com.soict.hoangviet.restfulapidemo.controller", "com.soict.hoangviet.restfulapidemo.config"])
 class RestfulApiDemoApplication {
 
-    @Bean
-    fun init(bookRepository: BookRepository) = CommandLineRunner {
-        bookRepository.saveAll(arrayListOf(
-                Book(name = "Code dao ki su", author = "Toi di code dao"),
-                Book(name = "Toi tai gioi ban cung the", author = "Adam Khoo")
-        ))
-    }
+//    @Bean
+//    fun init(bookRepository: BookRepository) = CommandLineRunner {
+//        bookRepository.saveAll(arrayListOf(
+//                Book(name = "Code dao ki su", author = "Toi di code dao"),
+//                Book(name = "Toi tai gioi ban cung the", author = "Adam Khoo")
+//        ))
+//    }
 }
 
 fun main(args: Array<String>) {
