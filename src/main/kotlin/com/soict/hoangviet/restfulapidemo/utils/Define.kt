@@ -14,4 +14,11 @@ object Define {
         const val DELETE_DATA_SUCCESS = "Xóa dữ liệu thành công"
         const val ERROR_TRY_AGAIN = "Có lỗi xảy ra. Vui lòng thử lại"
     }
+
+    object QueryParam {
+        const val PAGE = "page"
+        const val LIMIT = "limit"
+        const val DEFAULT_LIMIT = 10
+        const val DEFAULT_PAGE = 0
+    }
 }

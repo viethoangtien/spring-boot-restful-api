@@ -5,18 +5,22 @@ import com.soict.hoangviet.restfulapidemo.repository.BookRepository
 import com.soict.hoangviet.restfulapidemo.response.BaseListResponse
 import com.soict.hoangviet.restfulapidemo.response.BaseObjectResponse
 import com.soict.hoangviet.restfulapidemo.utils.Define
+import org.springframework.data.domain.PageRequest
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import java.util.*
 
 @RestController
 class BookController(val bookRepository: BookRepository) {
 
     @GetMapping(Define.Api.BOOKS)
-    fun getBooks() = BaseListResponse(
+    fun getBooks(@RequestParam queryMap: Map<String, String?>) = BaseListResponse(
             status = HttpStatus.OK.value(),
             msg = Define.Message.GET_DATA_SUCCESS,
-            data = bookRepository.findAll()
+            data = bookRepository.findAll(PageRequest.of(
+                    queryMap[Define.QueryParam.PAGE]?.let { Integer.parseInt(it) - 1}
+                            ?: Define.QueryParam.DEFAULT_PAGE,
+                    queryMap[Define.QueryParam.LIMIT]?.let { Integer.parseInt(it) }
+                            ?: Define.QueryParam.DEFAULT_LIMIT)).toList()
     )
 
     @GetMapping(Define.Api.BOOKS_ID)
